@@ -1,0 +1,16 @@
+name: "Mi Nombre"
+output_dir: "."
+navbar:
+  title: "Migración y vivienda"
+  left:
+  - text: "Paper"
+    href: migracion-vivienda-final-work.html
+  right:
+  - icon: fa-envelope fa-lg
+    href: martin.venegas@ug.uchile.cl
+  - icon: fa-github fa-lg
+    href: https://github.com/Martin-Venegas-M/Open-Social-Sciences
+output:
+  html_document:
+    theme: cerulean # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
+    css: 'styles.css'

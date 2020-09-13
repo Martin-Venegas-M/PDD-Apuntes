@@ -1,0 +1,25 @@
+---
+title: "Migration and housing study"
+---
+## Brief description
+<br>
+This website contains the final document for the study <i> "Migration and housing: a study of rental costs in 2017" <i> within the course <i>"SOC01073-1 Methodological profundization elective - Open Social Sciences: Tools for Reproducibility, Colaboration and Comunication in Social Investigation 2020, First Semester"</i>
+</br>  
+
+## Important information:
+1. This webpage is built with learning purposes about tools for reproducibility in academic works.
+2. The following paper was a product of the course: *"SOC01060-1 Metgodological profundization elective - Multilevel Analysis 2019, Second semester"*, dictated by professor [Juan Carlos Castillo](https://juancarloscastillo.github.io/jc-castillo/index.html)
+3. The following paper obtains a final grade of 6.0, following 1.0 to 7.0 scale, therefore this works is still under revision for the final version.
+4. The original database (CASEN 2017) exceeds the weight limit for Gitgub repositories. For downloading, click
+[here](http://observatorio.ministeriodesarrollosocial.gob.cl/casen-multidimensional/casen/docs/casen_2017_spss.rar).
+5. The following paper is reproducible under [IPO protocol](https://juancarloscastillo.github.io/ipo/)
+6. For more information check the [course page](https://cienciasocialabierta.netlify.app/)
+7. The following paper is still in spanish version. For more details see the repository of the paper.  
+
+## Authors:
+### Undergraduate students of sociology, department of Social Sciences, Universidad de Chile:
+- [Diego Esturillo Sáez](https://github.com/DiegoEsturilloS)
+- [Martín Venegas Márquez](https://github.com/Martin-Venegas-M)
+- [Andreas Lafferte](https://github.com/Andreas-Lafferte)
+- [Jan Dimter](https://github.com/jaaansky)
+
