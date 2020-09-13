@@ -4,7 +4,7 @@ navbar:
   title: "Poder, Dominación y Democracia - Apuntes de Clase"
   left:
   - text: "Clase Introductoria"
-    href: Clase Intro - PDD.html
+    href: Clase-Intro---PDD.html
   - text: "Clase 1"
     href: Clase-1---PDD.html
   - text: "Clase 2"
@@ -29,12 +29,7 @@ navbar:
     href: Clase-11---PDD.html
   - text: "Clase 12"
     href: Clase-12---PDD.html
-  right:
-  - icon: fa-envelope fa-lg
-    href: mailto:martin.venegas@ug.uchile.cl
-  - icon: fa-github fa-lg
-    href: https://github.com/Martin-Venegas-M/Open-Social-Sciences
 output:
   html_document:
-    theme: cerulean # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
+    theme: yeti # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
     css: 'styles.css'
