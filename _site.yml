@@ -1,13 +1,37 @@
-name: "Mi Nombre"
+name: "PDD Apuntes"
 output_dir: "."
 navbar:
-  title: "Migración y vivienda"
+  title: "Poder, Dominación y Democracia - Apuntes de Clase"
   left:
-  - text: "Paper"
-    href: migracion-vivienda-final-work.html
+  - text: "Clase Introductoria"
+    href: Clase Intro - PDD.html
+  - text: "Clase 1"
+    href: Clase-1---PDD.html
+  - text: "Clase 2"
+    href: Clase-2---PDD.html
+  - text: "Clase 3"
+    href: Clase-3---PDD.html
+  - text: "Clase 4"
+    href: Clase-4---PDD.html
+  - text: "Clase 5"
+    href: Clase-5---PDD.html
+  - text: "Clase 6"
+    href: Clase-6---PDD.html
+  - text: "Clase 7"
+    href: Clase-7---PDD.html
+  - text: "Clase 8"
+    href: Clase-8---PDD.html
+  - text: "Clase 9"
+    href: Clase-9---PDD.html
+  - text: "Clase 10"
+    href: Clase-10---PDD.html
+  - text: "Clase 11"
+    href: Clase-11---PDD.html
+  - text: "Clase 12"
+    href: Clase-12---PDD.html
   right:
   - icon: fa-envelope fa-lg
-    href: martin.venegas@ug.uchile.cl
+    href: mailto:martin.venegas@ug.uchile.cl
   - icon: fa-github fa-lg
     href: https://github.com/Martin-Venegas-M/Open-Social-Sciences
 output:

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Clase-10---PDD.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Migración y vivienda</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="migracion-vivienda-final-work.html">Paper</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="martin.venegas@ug.uchile.cl">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/Martin-Venegas-M/Open-Social-Sciences">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p>Clase 10 - PDD Fecha: 7-8-2020</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Marginación Un segundo fenomeno d eorpesion es loque pdoemos llamar marignacion, cuando hay grupos sociale suqe osn marignados de la partiipaiconutiles de la sociedad, son marginados de su participacion actividdesvaloradas en temrinos sociales. Esto quiere decir que esta valorado socialmente, no solo economicamente. En las soicedades mdoernas las actividades valoradas socialmente suelene star asociadas a actividades economicas.</li>
+</ol>
+<p>Lo que iensa Young es que los grupos socials marginados, no solamente aqui aparece un problema de distribución (actiivdads con menos o sin slaarios) sino que hay un rpoblema ma´s profundo que la distrubiocn, un bloqueo de ejercer las propias capacidades con reconocimiento social.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Carencia d epoder: AQui se centra en un fenomeno que surge a aprtir d eotra distinción: división del trabajo en la sociedd moderna (profesionales/no profesionales). Los grupos sociales que s einstlaan en torn a esta disntciión se generan una serie de diferencias. Una diferencia evidente es la diferencia económica, pero también surgen diferencias culturales:</li>
+</ol>
+<ul>
+<li>Estatus: los grupos sociales quedan más asociados a una idea cultural de respatibilidad, por ende tienden a desarrollar mayores capacidades en torno al trabajo</li>
+<li>Poder (autonomía): la distinción en ultimo temrino seexpresa en una diferencia en temrinos de poder, porque los grupos profesionales gozan de mayor autonomia en el trabajo. O que tienen uqe tienen una mayor distania con la aceptacion directa de ordenes. Entonces los grupos no prefionales experimentan opresión no solamente</li>
+</ul>
+<p>Para Ypung la injusticia en tonro ala diision dle trabajo no soalemnt itnee uqe ver on el ehchod e que xistan trabajos con más salarios que otors, sino que en el bloqueo de desarrollo de capacidades.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Imperalismo cultural<br />
+Young piensa que la idea de grupo dominante, para disitnguirlo de grupo de operion, tiene que ver con las vias de transmisión cultural. Los grupos dominantes tineden a hegemonizar esas vias de interpretación y comunicación. Esto quiee deciruqe algo que caracteriza a los grupos oprimidos es:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Ivisibalización cultural: no acceso a esas vias de interpretación.Un grupo de encuentro oprimido cuando su cultura siempre se encuentra invisibilizada, y esto bloquea la capacidad que tinene los individuos de evr reconcoidas las capacidades que se asocian a su cultura.</p></li>
+<li><p>Estereotipo: devaluados en terminos culturales, estereotipados, ocupan un lugar en la cultura oficial pero siempre a partir de esteoretipos, lo cual también bloquea las capacidades.</p></li>
+</ol>
+<p>Que se reduce que las experiencia sy las interpetaciones que itnene los grupos no encuentran una expresión en la cultura dominante.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Violencia<br />
+Young piensa partiuclarmente en la violencia sitematica sobre determinados grupos, violencia en la medida que pertenecen a determinados grupos sociales. P.ej violencia en función de la condición de mujeres, dehomosexual.</li>
+</ol>
+<p>Es una injusticia vivir bajo la amenaza, porque bloquea las capacidads.</p>
+<p>Esto muestra una apertura con respecto al análisis marxista más clasico, en la medida que va más allá del análisis de la opresión de clase. Asi tambien, los rostros de la opresión se constituyen de manera heterogena al interior de los grupos sociales. Los grupos sociales son ehteogenos porque expermienntan distintas formas de opresión, que a su vez se van entrelazando.</p>
+<div id="democracia-comunicativa" class="section level2">
+<h2>Democracia comunicativa</h2>
+<p>El punto de artida es correto, pero hay dos limites que ameritan una revisión:<br />
+1) Distinción razón/cuerpo: los sujetos que habermas describe en la deliberación, ne la spratias de comunicarcion, son sjujetos que se caracterizan por su racionalidad. Parecen ser sujetos dodne la situación corporal no está presente. Esto no es solamente una idea reducida de lo que es ser un suejeto, sino que también lleva</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Comunicación: estrechada a una argumentacion discursiva racional</li>
+</ol>
+<p>El gran puntonde la teoria habermasiana es ampliar el concepto de “comunicación política”, y por ende pasar de hablar de <em>democracia deliberativa</em> a <em>democracia comunicativa</em>.</p>
+<p>La diferencia peude ser un mecanismo trabajaod por la democracia.</p>
+</div>
+<div id="política-multiculturalismo-y-derechos.-el-feminismo-de-seyla-benhabib." class="section level1">
+<h1>Política, multiculturalismo y derechos. El feminismo de Seyla Benhabib.</h1>
+<p>El debate que ella se ha insertado es sobre l posibilidad de criterios universales en la democracia, o nuestras definiciones de democracia y de justicia son siempre particulares. Entre universalismo y particularismo. Diferencia por ejemplo entre Rawls y comunitaristas.</p>
+<p>Benhabib va a proponer una suerte de puntos intermedios, un <strong>universalismos democratico</strong>. Tenemos quw proponer prinipios universales, pero no podemos pasar por alto las particularidades. Es un punto intermedio en el sentido de uqe podemos defender ciertos principios universales. Támpoco estmos obligados a defender universlaismos abstractos.</p>
+<ul>
+<li>Heterogeneidad/diferencias<br />
+</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Caracter socialmente situado e los sujetos: el sujeto de la democracia nunca es un sujeto nuiversal, la democracia tiene que responder a esa pregunta. La diferencia es que benhabib va a recurrir a una discusión que notros vimos sobre las eticas del cuidado, los lazos que nosotros tenemos en tanto eprsonas afectivas. Ese tipo de relaciones le plantean una pregunta a la teoria d ela democracia, cómo incluirlas.</p></li>
+<li><p>Heterogneeidad cultural: las diferencias culturales y con el problema o el desafio que plantea el multiculturalismo a la idea democrática. Benhabib hasido muy activda en una discusión sobre si es posible que tengmaos criterios democrticos pero al mismo que permita convivir a sociedades multiculturales.</p></li>
+</ol>
+<p>Benhabib ha abordado la pregunta multiculturalista tmabien desdeuna itnerrogacion en el campo de las terias democraticas feministas pues a lela le importa preugntarse por ele status poilitico de mujeres y niñas. Porque Benhabib va a abordar especificamente preguntas como la siguiente: las practicas y tradiciones se van en la ideade atribuirle un estatus político menor a mujeres y niñas,qué hacer ahi</p>
+<p>Por ejemplo, mutilacion femenina, el uso del velo etc. Podemoz juzgar eso, o aceptamos que cada cultura admisntrite sus formas de democracia. Benhabib diría quenecesitamos un principio democratico. Un universlaismo democratico se leja de las dos posiciones, de que cada cultura definirá sus criterios de democracia. pero tambien se aleja sobre la posicion de que se pueden juzgar las cuturas desde afuera.</p>
+<div id="a-democracia-y-ética-del-cuidado" class="section level2">
+<h2>a) Democracia y ética del cuidado</h2>
+<p>Con respecto a lo primero, benhabi va a partir de l siguiente diagnostico, piensa que el pensamiento político moderno en sus distintas expresiones ha partido de cierta idea de:<br />
+- Seres desarraigados: sin ningun lazo social, una cierta ficción, de hablar de seres desarraigaos.</p>
+<ul>
+<li>Ficción masculino: Una cierta ficción que ha tendido a coincidir con que esos indivduos que sonr elaatados o que son presentados como el tipo ideal de un sujeto político dela democracia, tienden a ser indivduos masculinos. Porque aquellas otras experiencias donde los lazos sociales de afectividad, donde el cuidado ha sido lo central, han sido experiencias feminizadas. Entonces cada vez que las teorías políticas dejan de lado esta pregunta, no solamente excluyen un ambito de discusión, sino que la despolitización.</li>
+</ul>
+<blockquote>
+<p>“Pero este es un mundo extraño, en el que los individuos son maduros antes de haber nacido; en el que los muchachos son hombres antes de haber sido niños; un mundo en el que no existen ni madre, ni hermana, ni esposa”</p>
+</blockquote>
+<p>Esto tiene por consecuencia ciertos antagnosimos:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Soberanía del ser: somos más libres en la emdida que somos libres de las relciones con los demás, al figura de un ciudadano racionala utonomp en contrapscion a las relaciones con los dempas<br />
+</li>
+<li>Independencia/vinculo: imagen poltiica mdoerna, somos más independientes en la emddis que tenemos menos vinculos con el resto<br />
+</li>
+<li>Autonomía/crianza, cuidado.</li>
+</ol>
+<p>Lo último que diremos es que benhabib sostendrá que las teoría de la democracia ha tneiddo a argumentar desde el punto de vista del <em>otro generalizado</em>. Un otro que poria ser cualqueira en la emdida que podría ser un cualquiera racional. Esta es una pregunta incompleta, la democracia es también por el otro concreto.</p>
+<p>Al igualq ue Young, va a pensar que el modelo discursivo de Habermas está construido a partir del otro generalizado.</p>
+<p>¿Quéimplica la deliebración con toros que tienen cualidades especificas?</p>
+</div>
+</div>
+<div id="parte-2" class="section level1">
+<h1>Parte 2</h1>
+<p>Videocapsula consulada 14-8-20</p>
+<p>Volvemos con Seyla Benhabib. En ella aparece con un utno de partida similar que iris marion young, aunque tiene ciertos matices distintos.</p>
+<p>Volvemos a la idea de democracia basada en la diea del otro generalizado, este es un cocnepto de Mead. La misma obra de Habermas está influida por Mead al pensar la interacción social, tiene uqe ver con la interiorización de un otro generalizado.</p>
+<p>Pata recaputilar el arugmento, Mead pensaba que nuestro desarrollo moral, es decir como aprendemos a hacer juicios morales, está marcado por el desarrollo que temprano. Otro generalizado, respetamos al resto independiente d elos lazos que tenemos con ellos. Esyoy dispuesto a respetar cietros deberes o ciertas bolgiciones isn relaicones con ellos. Ese es el paso de otro concreto al otro generaliazado.</p>
+<p>Lo que permitiría el lenguaje segíun habermas es la formación de este otro generalizado, adquieirmos una conciencia moral en ase a este.</p>
+<p>Lo que piesna Benhabib es que las toeria spoltiica sy de la democracia hant eniddo aa argumentar ne un sentido similar, conq ue la democracia tine que evr con un otro generalizado. Nos imaginamos cuales sona quellos derechos deberes, condiciones libertad igualdad etc, que permitirían un ordenamiento democrático para <em>todos los individuos</em>. La figura del sujeto de la democracia se encargna en un otro generalizado. Benhabib piensa que esto es acertado porque nos lleva a pensar un respeto moral universal, como los derehos humanos.</p>
+<p>Si biene s acertada, es una forma icncompleta de abordar la forma de qué es la democracia. El punto de vista de una sociedad democrática no solo se entiende desde el otro generalizado, sino también dle otro concreto. Las teorías lo suelen tomar como una etapa que se supera. Hay un probelma cuando pensamos en lademocracia solo como un otro generalizado.</p>
+<p>¿Cuál es el problema de mantenerse en el OG?</p>
+<p>Benhabib piensa que el problema es aprtiuclarmente visiblw cuando examinamos que implica la idea basica de la teria democratica, especialemtne la deliberativa, de <em>discutir políticamente con otros</em>.</p>
+<p>Hay un problema fundamental qe quizas gran aprte d elas teorias ponen un acento en el <strong>discutir</strong>. Para Young la idea de discusión política tiene que ampliarse a otras formas de comunicaicon política. Pero Benhabib pone una cento en el otro componente, el problema de la <strong>otredad</strong>. Quienes son esos otros, cuáles son sus cualidades.Lo que piensa Benhabib, es que si nosotros nos imaginamos esos otros, que son aprte del debate democrático, solamente desde el punto de vista del OG esa otredad no es una otredad, es más bien nosotros mismos representados de otra forma. Lo que le itneresa a Benhabib es que el OG es cualquiera de nosotros. Cualquier individuo racional firmaría ese contrato. Si pensaríamos que la democracia tene que ver solo con el OG, la otredad no es el otro, somos nosotros mismos.</p>
+<p>La otredad solo vista desde el OG <strong>aunla la pluralidad</strong>. Benhabib piensa que una teoría de la democracia como deliberación debe ser inclusiva, debe incluir distintos grupos, por ende es un problema que solamente consideremos el OG. La figura abstracta del ciudadano, el sujeto de derecho. Quiere decir que pensar la democracia solamente desde el OG anula la pluralidad del espacio público.</p>
+<p>Benhabib también tiene un vinculo bien improtante con la obra de Arendt, la idea de un espacio publico que se caracteriza por su pluralidad. El espacio publico es plural en la medida uqe hay condicones de igualdad y diferencia. Benhabi retoma este argumento para plantear el suyo: el pensar la democracia desde el OG, los derechos que tenemos uq epensar para cualquier ciudadano, anula la pluralidad del espacio publico, no se pregunta por las diferencia ssino que por lo que nos ahce iguales.</p>
+<p>La democracia supone pensar desdeuna posición <strong>universlaista</strong> (OG): cuále sosn los derehcos uq epodrian valer para cualquier indivduos, pero también desde una spoición <strong>particularista</strong> (OC). Mucha sveces la pregunta universlaista, p.ej lso derechos apra todos los individuos, cuandov emos solo eso pasamos por alto de dimensiones uqe osn relevantes para grupos espeificos, por ejemplo para las minorías culturales d euna sociedad. Cuando hablamos de derechos para todos los ciudadanos, estamos pensando en un ciudadano ideal. Insviisbiliza la experienica de esos grupos.</p>
+<p>Cada vez que en los procedimeintos democratico omitomos al OC, el resultado es una <em>incoherencia epistemica</em>. En genera para los autores uqe se enmarcan en la democracia deliebrativa, significa que la democracia es un mecanismo epistemico, o sea es una forma en que la sociedad conoce sus prblemas sociales y decide alguna forma de enfrentarlos. Tiene una dimensión de conocimientos. En general los autores de la perspectiva dleiebrativa, plantean que ese conocimiento es más amplioy más profundo en la emdida que sean más autores incorporados en la discusión, en las distintas perspectivas. Tendría una mayor rectitud normatiba (mayor legitimidad), nuestra identificac´pon de las aristar del problema es mayor. Esa es la importancia epistemica.<br />
+El proceos de descubir los rpoblemas de la sociedad se ve empobrecido, peus el OG es siempre dialgoar con dinviiduos que son como nosotros mismos. Sería menos rico en términos epistemicos. Esto lleva a Benhabib a plantear la idea del OC, no es algo que solo beneficie a esos grupos cocnretos, sino que beneficia el proceso democrático.</p>
+<p>Entonces lo que es necesario es conocer al otro a través de su voz, que los grupos se representen sus experiencias en la esfera pública, sin la necesidad de ser forzados a un punto de vista abstracto.</p>
+<p>Ella distingue entre dos formas pensar el universlaismo de una teoría democratica: un unversalismo interactivo o democratico, es un punto de vista general que os represetna a todos que surge a aprtir de las interacciones de particularidades y es distinto ala figura que ha primado muchas veces cuando epsnamos este tipod e debates, que es el universalismo sustitivo. Los individuos se preocupan por los “otros”, pero traducene esa experiencia para si mismos.</p>
+<p>El unievrslaismo democrstico supone que los grupos se hacen presentes con sus partiuclaridades, y a aprtir de esa interacción surge una deicson poltiica que peude tener cietra legiitmidad. La idea evitar es que el unievrslaismo aplaste las diferencias, que nos las sustituya. Algo importante a señalar de aqui todavia es que benhabib piensa que esto aplica para todo proceso democratico, en toda institucion deberiamos pensar los procesos democraticos de esa manera, por ejemplo: cuando regulamos el acceso a la educación.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>El desafio del multicultralismo<br />
+Lo anterior a ha llevado al trabajo de Benhabib sobre el multiculturalismo. Ha habido una gran disucsión sobre la conviviencia democratica en sociedades multiculturales.</li>
+</ol>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

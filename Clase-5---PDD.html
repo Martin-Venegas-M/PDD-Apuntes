@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Clase-5---PDD.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Migración y vivienda</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="migracion-vivienda-final-work.html">Paper</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="martin.venegas@ug.uchile.cl">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/Martin-Venegas-M/Open-Social-Sciences">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="clase-5-parte-1" class="section level1">
+<h1>Clase 5 (parte 1)</h1>
+<div id="fecha-12-6-2020" class="section level2">
+<h2>Fecha: 12-6-2020</h2>
+<p>Pregunta: ¿Las instituciones en un sentido más sociológico podrían cumplir el objetivo que plantea Petit?</p>
+<p>Si, en el sentido que dentro de una institución social se pueden formular mecanismos institucionales para regular la arbitrariedad del poder en esa institución social, por ejemplo, crear leyes contra violencia domestica para la familia.</p>
+<p>Volvemos con Marx Hay un contrato laboral entre individuos lorese iguales pero al finañ hay dominación de clase. La clave para entender esto tiene que ver con la propiedad privada de los medios de producción. para Marx la propeidad privada y los edios de producion generan una distorsión de manera estructural de esa libertad e igualdad.</p>
+<p>Propietario mdp Propietario fuerza de trabjo Los margenes de libertad para moverse en el emrcado son totalmente disitntos, el obrero tiene que elegir entre trabajar o morir de hambre, porqu no tiene otra propiedad. El capital en cambio puede elegir entre obreros, son ambos formas de libertad pero con margenes de libertad distintos.</p>
+<p>En esta disputa que hay al interior de la producion el capital tiene uyun margen mucho mayor para moverse.</p>
+<p>Veremos la consecuenica que tienen la propeudad privada de los mdp</p>
+<p>Una de las discusiones con los anarquitas tine que ver con entender el estatus de la propiedad, Marx piensa que la propiedad en el cpaitlaismo no es un robo, porque esta funciona a través d eun contrato laboral, está regulada de determinada manera, el robo es algo fuerza de la estructura. La gracia de la dom capitlaista es que no necesita robar, no necesita ser algo que vulner elos principios basicos de esa estructura.</p>
+<p>“Entre derechos surge l fuerza”</p>
+</div>
+<div id="erik-olin-wright" class="section level2">
+<h2>Erik Olin Wright</h2>
+<p>Wright es un autor contemporaneo y es uno de la sprincipale svoces del marxismo análitico, ina tradicion que surge en la sgunda mitad del siglo 20 intentando actualizar con bastante preciison conceptual ciertas dieas basicas de la ideas de Marx. Wright construye una teoría de las clases marxstas para el capitalismo contemporaneo, reelabora el concept de explotación.</p>
+<p>Se puede estudiar las posiciones intrermedias sin dejar d elado la explotacion.</p>
+<p>Wright tmbién trabajo la relacipon entre capitalismo y democracia, con la siugiente tesis: capitalismo como forma social plantea ciertos limites a la democracia, son limites que suponen una transformacion del capitalismo, hay una contradiccion entre principiosbasicos de la sociedad capitlaista y la idea de democracia.</p>
+<p>Al mismo tiempo, Wright piensa que el gran problema que tiene que enfretnar la tradición marxista, sobre todo despues de los socialismos reales, es que la superacion del capitalismo es al mismo tiempo una suepracion democratica. Es decir, el capitalismo por una parte supone limites a la democracia pero la única forma de transformar la esfera capitalista es la democracia, un socialismo democrático.</p>
+<p>Una de los elementos menos sostenibles de los socialismos reales fue distribuir el poder al Estado. Por esto Wright defenderá una idea democratica de socialismo, un poder social, democracia radical (ojo concepto definido desde hartas partes), para Wright no hay contradicción entre democracia y socialismo.</p>
+<p>Proyecto: construyendo utopías reales (2010). Wright inicia un proyecto colectivo desde los 90. El libro es el marco general de este proyecto.</p>
+<p>Para Wright la idea de utoías reales describe cuales son las tareas de lo que es una ciencia social emancipadora. Tiene por tares bosquejar utoías reales.</p>
+<ol style="list-style-type: decimal">
+<li><p>Diagnostico/critica Una ciencia social emancipadora tinee por un lado forumular un diagnostico de las sociedades existentes, partouclarmente un diagnostico crítico. Para Wright esto se explcia en la tradición marxista se explica en que el punto de partida es una crítica al capitalismo, critica historica al capitalismo. A partir de eso formular alternativas.</p></li>
+<li><p>Alternativas de emancipación Pensar desde las contradicciones que muestra la sociedad capitalita alternativas de emancipación, lo que WRIGHT entiende como utopías reales. Wright piensa que la idea de utoía en la tradicion marxista clasica era mal vista, el utopico es el que presenta ideales desconectados de la realdiad, meras abstracciones. Lo que piensa Wright es que hay que reivinidcar la tradicion amrxista como una utoía realizabñe, la posibilidad de una sociedad socialista democratica se geenra desde las contradicciones del capitalismo.</p></li>
+</ol>
+<p>Las alternativas de emancipación que pueden ser categorizadas como utoías reales deben cumplir 3 criterios:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Deseables, cumplir valores que deseamos realizar</li>
+<li>Viables, es decir, pensar innovaciones institucionales, formas alternativas a las existentes de organizar problemas cotidianos y problemas sociales.</li>
+<li>Factibles, Wright piens que es una herenciad e la tradición marxista, son facitbles en tanto se generan como posibilidad a partir de las condiciones reales de la sociedad. P.ej, no es factible pensar que se puede cambair el capitalismo en donde la gente tenga l mitad del tiempo para organizarse colectivamente.</li>
+</ol>
+<p>Partamos por elprimer momento, este es someter a critica el capitalismo. Que distingue esta idea: 1) Justicia social: se formula en base a criterios, uno de estos criterios es la jsuticia social, estedefine como la posibildiad d edisponer de los medios materiale sy sociales para vivir vidas plenas. Una sociedad es justa en temrinos sociales cuando hay igualdad de acceso a estas condiciones. Vidas plenas es la idea de tener condiciones materiales y sociales que nos permitan desarrollar nuestros talentos y capacidades.</p>
+<p>La ide de Wright es más profunda, no solo deben poder desarrollar sus talentos, sino que puedan descubrir nuevos talentos. Aquí se separa de la idea meritocrática, se Milton Friedman.</p>
+<p>P.ej nosotros no podemos saber si un niño tiene talento para el violin si nunca ha tenido las condiciones materiale sy sociales para acercarse al violin.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Justicia política Lajsutica poltiica tendir au ever con los medios que permiten participar en la toma de decisiones, con un aspecto polítio. Y estas decisiones pueden ser distinguidas en dos niveles:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Condiciones para tomar decisiones sobre la propia vida: libertad individual</li>
+<li>Condiciones para tomar decisiones sobre los asuntos comunes: valor de la democracia La democraicia tiene que ver con que los idnivduos tengan condiciones y medios para participar en la toma de decisiones colectivas.</li>
+</ol>
+<p>Aqui aparece la diea de una eprspectiva igualitaria radical. La idea es democratica radical tiene que ver con que es una cocnepción expansiva de la democracia, tenemos que hablar de democracia en toda esfera que tenga que ever con los asuntos comunes. No solo se realiza sobre el Estado, sino por ejemplo en los lugares de trabajo.</p>
+<p>Lo importante es que avance el poder social.</p>
+<p>En el capitalismo del siglo 21 deberian convivir distintas alternativas, porque responden a distintas esferas de la sociedad que son distintas. La idea de radicalidad para Wright no tiene que ver con los medios, no se mide en la violencia, sino en la medida en que logra hacer avanzar el poder social, es decir la capacidad de la gente para tomar decisiones colectivas.</p>
+<p>Lo que hayque evr es como el capitalismo se relaciona con estas dos dimensiones, la justiia social y la política.</p>
+<p>Para esto es necesario partir espeificando que hablamos cuando hablamos de capitslismo, caracterizar una estructura básica del capitlismo, siempre tiene una estructura basica que define el nucelo de una sociedad capitalista. Wrgiht piensa que la gracia de la tradicon amrxista es que no critico al cpaitlaismo solamente por sius efectos sino que relaciono todos esos efectos con el nucleo de la sociedad capitlaita, que es diferente a otras criticas al capitslismo, por ejemplo, destrucción del medioambiente.</p>
+<p>¿Cual es esta rstructura bpasicoa?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Relaciones de clase (propeidad privada: medios de producción) Un elementos basico de la sociedad capitlslta es laproipeodad privada d elos emdios de produccion porque eso funda las clases</li>
+<li>Mecanismo central de coordinación económica descansa en el libre mercado y por ende en el pdoer economico.</li>
+</ol>
+<p>Esta estrcutra basica está en contradicción con los valores que vimos, es decir, limita: a) Posibilidades igualitarias de vida plena (justicia social) - perpetua formas de sufirmiento: existen muchos sufirmientos y penurias que serian completamente posibles de limianr, pero que no eliminan en virtud de esta estructura básica del capitslismo, ejemplo: lugares que viven en crisis alimentarias, es un sifirimeinto innecesario en terminos historicos, porque no es que falten, sino que la distribución de alimentos está basada en la estructura básica del capitalismo - desigualdad en la libertad de casa ino - rutinizacion y devaluacion del trabajo: capacidad del obrero devaluada, impide el desarrollo igualitario de condiciones y talentos - tendencia al consumismo: consumismo como consencuencia necesaria de la estructura basica del capitalismo, tendencia estructural del mercado a producir más bienes de los necesarios</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Limita la democracia (“gobierno del pueblo”, justicia política) La pregunra serpa en qué sentido la estructura básica limita la democracia.</li>
+</ol>
+<ol style="list-style-type: decimal">
+<li><p>Concentraciond e la riqueza El capitalismo está en contradicción con la democracia en tanto genera una tendencia a la concentración de la riqueza. Esta genera que le poder ecnomico adquiera una infleuncia desigual en los asuntos públicos, es decir, la emdida en la que se concentra la riqueza los que tengan más pueden ifnluir en los asuntos comunes. Esto quiere decir que el capitlaismo como estructura está en tensión con la idea de igualdad política. Ejemplo de libertad y desarrolloa</p></li>
+<li><p>Propeidad privada d elos medios de produccion Hay un conjunto de decisiones osbre la eocnomia que se toman al margen de decisiones colectivas. La deciion de bota cmida por ejemplo descansa en en el dueño privado de esa comida. Ejemplo, creación de universidades, su funcionamiento, la toman propietarios privados.</p></li>
+</ol>
+<p>En la medida que entregamos bienes a la propiedad privada, entregamos la capacidad de definir prioridades sociales.</p>
+</div>
+</div>
+<div id="clase-5" class="section level1">
+<h1>Clase 5</h1>
+<div id="videocapsula-consultada-el-17-6-2020" class="section level2">
+<h2>Videocapsula consultada el 17-6-2020</h2>
+<p>Continuaremos viendo el argumento que vimos en la clase sobre en qué sentido el capitalismo según Wtight está en contradicción o limita la democracia, vimos estos dos criterios, el de <strong>justicia social</strong> y el de <strong>justicia política</strong>.</p>
+<p>Alcanzamos a revisar en qué sentido, la estructura básica, limita la democracia -la justicia política. Esto lo vimos con dos aspectos</p>
+<ul>
+<li>La concentración de la riqueza</li>
+<li>Propiedad privada de los medios de producción Vimos que este segundo elemento establece todo un marco de decisiones que quedan a voluntad de los propietarios privados y que tienen consencuencias a todos pero que están sustraidas de la decision colectiva.</li>
+</ul>
+<p>Alcanzamos a evr un segundo elemento, sobre en la medida que una gran cantidad de bienes se organizan en torno a la propeida dprivada - que eso es lo que suele pasar en una sociedad capitalista, propiedad privada y el mercado como el principal mecanismo de coordinación economica- <strong>las prioridades sociales se establecen de acuerdo a voluntades privadas, rpopietarios privados</strong>.</p>
+<p>Lo que interesa a Wrgiht es que no solo el propietario privado decide sobre su propiedad,s ino que en sus decisiones tiene consecuencias por la sociedad. Por ejemplo privatizar la educación superior,a l formació y todo queda en manos de privados. Ahi el Estado asume un rol pero solo de fiscalización, de sueprvisión, pero las decisiones centrales en la medida queun bien está privatizado las prioridades quedan en manos e privados, eso implica que las decisiones colectivas no se toman de manera colectiva, lo que tensiona la democracia.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Estado : base fiscal privada Y también, hay un tercer elemento que tambien se vincula con la existencia d ela propeidad privda, pero que es más especifico y tiene que vercon las capacidades de acción que tiene estructuralmente el Estado en una sociedad capitalista, el Estado n ua soc cpaitalista se basa en una estructura economica endonde impera la propeidad privada como forma hegemonica. Esto quiere decir que para obtener recursos, para emprender cualquier cosa, neecsariamente tiene que obtener recursos de una base fiscal de propietarios privados, tiene que recurrir a reursos de propietarios privados. Por ejemplo, aumentondo tasas de impeusto, estbaleciendo cuotas de pago. Pero como el Estado no es el agente economico principal necesita una base fiscal privaa.</li>
+</ol>
+<p>Esto quiere decir que el gasto publico está estructrualmente condicionado por los propietarios privado, el capital privado establece ciertas codnciones estructurales a lo que puede y no puede hacer el Estado en términos de financiamiento. Wright piensa que esto muestra ciertas tensiones permanentes cuando se intentanhacer pol´tiicas fiscale smás progresivas en el sentido de extraer mayore ingresos del capital privdo, ahi ellos reaccionan.</p>
+<p>Esto entonces importan en tanto que el Estado se ve condicionado, sobre todo en el sentido progresivo de obtener recursos del capitli privado, lo que hacen Estados que tienene structuras más regresivas que progresivas es financiarse por medidas que afectan a toda la ciudadanía, por ejemplo el IVA.</p>
+<p>Cuando el Estado intenta adoptar medidas más progresivas es decir aumenta rlso recursos para hacerbienes publicos a aptir de cobra más alcpaitli privado, el capital privado tiene un cierto poder, como la <strong>amenaza de la desinversión</strong>. El capital privado cada vez que se siente amenazado él amenaza con la desinversión. El capital lo que tiene es un <strong>poder de veto sobre la democracia</strong>, y eso es una condición propia de las sociedades cpaitalistas, Marx describe que el capital funciona en una lógica de modo de produccion global, eso queire decir que el gran capital puede sacar los recursos y llevarlo a otro lugar, eso se conoce como <strong>fuga de capitales</strong>.</p>
+<p>Esto quiere deecir que frente a decisiones colectias, por ejemplo una iniciativa que fomenta bienes públicos a partir del cobros a los suepr ricos, el capital puede amenazar con retirarse de franjas importantes de la economía, lo que generaría una crisis economíca. Entonces el Estado siempre se mueve en ese margen bien fragmentario, que cualquier termino de avanzar en términos de reursos públicos aprece el peso de poder que tiene el capital privado, lo que afecta las decisioens democraticas de una socedad capitalista.</p>
+<p>Hasta aquí, revisamos que para Wright iuna ciencia social emancipadora tiene dos tareas, una primera de someter a critica la sociedad capitlasita, un diagnostico frmulado empiricamente de como funciona el cpaital y porque limita la justucia social uy política, pero tamién tiene una segunda cara de formular alternativas de emancipación, lo que Wright llama <strong>utopías reales</strong></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Democracia radical (“brujula socialista”) Wright pensrá que el tipo de alternativas que interesa pensar a partir de las contradicciones de la sociedad capitlaista tiene uqe ver con una idea de la democracia radical, que sría la forma que toma una política de orientación socialista.</li>
+</ol>
+<p>Wright piensa que las utopías reales tienen que ser pensadas como una brujula socialista, a Wright no le interesa bosquejar en detalle de como sería una sociedad ideal totalmente socialista, sino que estas utopías reales lo que indican políticas que sean posibles en una dirección hacia el socialismo, o que apunten en un posibe sentido transformador hacia una sociedad distinta al capitalismo, políticas que cuestionan la sociedad capitalista y van en otra dirección. Esto es importante pues sino solamente caemos en la idea de utopía, irreal.</p>
+<p>En cambio as utopias reales lo que buscan hacer es indicar caminos posibles, los cuales tampoco se pueden diseñar de antemano por la teoria, un libro no puede deir que eso caminos seran existosos, sino que puede indicar por donde sería posible. Pues el resultado de esos caminos va a depender de condiciones historicas que no puede preveer la teoria: correlaciones de fuerza, relaciones de clase, alianzas políticas. Entonce suna teoría támpoco puede preveer por completo el fin de estos caminos.</p>
+<p>Esta es la idea del título original del libro, <strong>poner en visión utopías reales</strong>, lo cual se pierde un poco en la traducción al español.</p>
+<p>Lo interesante es que Wright piensa que esos caminos de transofrmaciones implican repensar la idea de poder, Wright piensa que la idea sociaista no tieene solo uqe ver con la distribución, sino que también con el poder.</p>
+<p>Wright pensará el poder como <em>la capacidad de los agentes de hacer cosas en el mundo</em>, aquí se expresa su orientación análitica. Aqui de algun modo el autor recoge una definición bien clasica de poder, del poder para. Algo particular que va a … Wright es que esa capacidad de los agentes de hacer cosas en el mundo siempre tiene una cierta base social, los agentes tienen capacidades diferenciadas de hacer cosas en el mundo a partir de sus condicones socio-estructurales. Esas capacidades de hacer cosas en el mundo no se distribuyen de manera igualitaria.</p>
+<p>Lo que piensa el autor que en las sociedades capitslistas ese poder para, esa capcadidadde hacer cosas tiene que ver con ciertas posiciones socioestructurales, eso tambibién explica su interés por una análisis de las clases. Las clases sociales no son solo una posición en la estructura economica, sino también capacidades distintas de poder. La posición en la estructura determina también las psoibildiades de los agentes de hacer cosas en el mundo.</p>
+<p>Según Wright uno puede entender análiticamente en las socs capitlasitas tres formas de poder:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Poder economico: la capacidadde hacer osas en el mundo a aprtir de disponer recursos económico, en donde en la socieda capitlsista toma forma a partir de la propiedad privada.</p></li>
+<li><p>Poder del Estado: consistee en la capacidad legislativa y ejecutiva en un territorio determinado. Una deifnición bien clásica de Estado, dentro de un territorio determinado.</p></li>
+</ol>
+<p>Esta es una distincion analitica, como se decia recien en las sociedades cpaitlistas lo que tiene a apsar es que el poder economico coloniza el poder del Estado en tanto el capital privado influye en los asuntos del Estado y legisla a su favor.</p>
+<p>En la historia real las formas de pdoer se presentan de distinta manera entrelazadas.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Poder social: capacidad de movilizar a la gente, a un grupo, a favor de acciones colectivas voluntarias</li>
+</ol>
+<p>Lo que aparece aqui es que esta es la forma genuinamente democratica del poder, una forma en la que el poder se ejerce a partir de la asociacion y la organizacioncolctiva. Aqui Wright para hablar de poder osical tiene una idea bien clasica de democracia, como Arendt, con la idea de que la viisón politica democratica implica un convencimiento colectivo voluntario y que las acciones que se hacen a aprtir de un mutuo convencimiento son democraticas.</p>
+<p>Esta distinción análitica en elf ondo se puede traducir en que existen tres formas de ocnsguir que alguien haga algo, aqui aparece a formula de poder sobre: a. comprar, el poder económico consigue que se hagan cosas a través del poder economico b. obligar, consigue que se haga algo a aprtir de la coacción c. convencer, en la medida que emana demovilziaciones coelctivas voluntarias se trata de convencer</p>
+<p>Son tres formas de poder que se pueden distinguir analiticamente y lo interesante es que pueden dar cuenta de distintos tipos e sociedad, en tanto que forma de poder es predominante.</p>
+<p>Para llegar a entender ese argumento, Wright va a recurrir a un argumento tipicamnte marxista, que esa forma social en el fondo se deriva dle tipo de poder que se eejrce sobre la estructura economica, la estructura productiva, y aqui volvemos la idea de que el problema que hay entre capitlismo y democracia tiene que ver con su estructura productiva básica. Por ende, hay que cambiar la forma del ejercicio del pdoer en esa estructura. Por ende, Wright se enfocará en el poder sobre la economía.</p>
+<p>El poder sobre la economía piensa Wright se ejerce siempre o tiene quever con la posiblidad de tomar dos decisiones, por una parte elpoder sobre lae conomia tiene que ver con la producción y sus objetivos.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Objetivo de la producción: ¿Qué se va a producir? ¿Cuántos se va a producir? ¿De qué cálidad se va a producir?</li>
+</ol>
+<p>Ejercer poder sobre la economía tiene que ver con decidir sobre los objetivos de la producción.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Usos del excedente Ejercer poder sobre la economía tiene que evr con los usos posibles del excedente economico, esto es algo central en Marx, para entender en la lógica dle cpaitalismo que lalógica del cpaitslismo es genrar capital, pero el capital funciona a tavés de la acumulación del capital. El momento de acumulación del capital tiene quever con que los propietarios privados, cuando se cierra el cicloproductivo, siemore quedan con un excedente y en virtud de ser propietarios proivados deciden a su arbitrio sobre el excedente. Piensa Marx que ese excedente es reinvertido en el proceso de producción, por eso la lógica es de acumulación del capital.</li>
+</ol>
+<p>Entoncestener poder osbre la economí tami´n tiene que ver sobre como se administra el excedente social. Aqui viene el ejemplo de los alimentos ¿por qué los supermercados botan alimentos? porque la decisión queda a propietarios privados.</p>
+<p>En la lógica de acumulación del capital es más conveniente destruir mercancías que destinarlas a otro uso ¿por qué? porque eso evita el exceso de emrcancías en el emrcado, pues si hay muchas la mercancía pierde valor. Lo mismo pasaría si esos alimentos fueran regalados.</p>
+<p>En virtud de esto Wright distingue tres modos de organización del poder sobre la eocnomía:</p>
+<ol style="list-style-type: decimal">
+<li><p>Propiedad privada (poder eocnomico) Una primera forma de poder sobre la eocnomia refiere a cuando las dos deciisones anteriores descansan en el poder eocnomico. Hablamos de un tipo de sociedad en donde las decisones sobre como se organiza la produccion y qué se hace con los excedentes descansa en propietairos privados.</p></li>
+<li><p>Propiedad estatal (poder del Estado) El Estado administra las dos decisioens anteriores</p></li>
+<li><p>Propiedad social (poder social) Las dos decisiones anteriores tienen descansa en decisiones colectivas que se toman de manera voluntaria y democracitca</p></li>
+</ol>
+<p>Estas formas ideales, dan forma a tres modelos de sociedad:</p>
+<ol style="list-style-type: decimal">
+<li>Capitalismo, en su forma pura</li>
+<li>Estatismo</li>
+<li>Socialismo</li>
+</ol>
+<p>Es importante entener una distinción análitica, porque el en el esatismo ahi entran distinta formas shitoricas de sociedad, por ejemplos son estatistas la experiencia sovietica. Lo que hizo esa experienza fue desplazar el poder ecnomico, la propiedad privada, a la propiedad estatal. Y ahi el poder social queda subordinado al Estado. El socialismo estatista es una forma en la que el poder del eSTADO subordinó tanto al poder economico como al poder social.</p>
+<p>Hay otras formas dodne Estado y poder economico se articuland e tora amnera, en donde se pueden ver los modelos de bienestar. El poder social se expresa de alguna forma. En lo que pasa en los estado de bienestar es una disputa entre estos polos.</p>
+<p>Para Wright, una socedad socialista esuna en la que el principal poder que regula la economía es el poder social. Podemos llamar políticas con orientación socialistas a todas aquellas que hacen avanzar hacia mayor poder social.</p>
+<p>Algo importante a entender es que el nucleo de la posibilidad de transformación del capitalismo tiene que ver con las relaciones de pdoer, tomarse las deisiones desde el poder social. Sin embargo, no es lo mismo que en una sociedad socialista todos los bienes se distribuyan de maner aigual. Es errado pensar el socialismmo como una igualdad simple. Lo que importa es que las formas en las que se distribuyan los bienes -los más relevantes para la sociedad- se distribuyan a través de mecanismos democraicos que expresan el poder social, es decir; a través de decisiones colectivas.</p>
+<p>La afirmación importante acá, es que según Wright esto implica que cuando nosotros decidamos colectivamente, la distribucion de deteerminados bienes no necesariamente la forma más justa o le mejor forma es la que sea igual para todos.</p>
+<p>Por ejemplo, la atención en salud, es contraintuitivo pensar que la forma justa de organizarla es que xada uno y una reciba la misma atención en salud. Y por qué seria injusot o contraituitivo, y esto aparece en Marx, porque esta visión pasaría por alto de que <em>tenemos necesidades distintas</em>. Lo importante para hablar de justicia política es que la sociedad pueda decidir democraticamente la distribución de ese bien, puede ser que <strong>la decisión para la ditribución de ese bien implique que este sea distribuido de manera desigual</strong>, sin embargo lo importante es que esta decisión se tome de una manera democrática.</p>
+<p>Cada cual a su necesidad</p>
+<p>Lo contrarioe es lo que tenemos en las sociedades capitalista, en donde por ejemplo la atención en salud está asociada al poder economico.</p>
+<p>Estoquiere decir que estas políticas de transformación de la sociedad capitalista, apuntarían en el sentido de establece tranformaciones hacia un horizonte socialista democratico. Aqui es biein interesante porque Wright establece este concepto que ha sido bien discutido por varios autores y autoras que han intentado conciliar ambos conceptos.</p>
+<p>Wright entonce spiensa que el socialismo en su diea básica tiene un elemento democrático, pues la democracia consiste en subordinar el poder estatal al poder social, pero también sobordinar el poder económico al poder social.</p>
+<p>Democracia: subordinación poder estatal al poder social Socialismo: subordinación poder económico al poder social</p>
+<p>Lo que se invierte acá es lalógica, que una sociedad que avanza en políticas de orientacion socialista pueden ser de distinto ritmo, Wright piensa no necesariemtne una ruptura de la noche a la mañana, sino que la idea d ebrujula apunta a como orientar políticas para una transformación en un sentido socialista.</p>
+<p>Esto es lo que Wright llama la brujula socialista.</p>
+<p>Las políticas de orientacion socialista se pueden desarrollar de distinta maneras en terminos concretos. Puede ser desde el Estado, o se pueden crear distintas estrategias etc. pueden ser distintos formas. Es por eso que dentro de las izquierdas se peuden plantear distintas formas. Sin emabrgo, el evaluador común es si permiten detener el avance de la propiedad privada.</p>
+<p>En lo que resta del video, se presentará la diferencia sexual como diferencia política. Cuales son las implicancias que tiene esa distintción sexual cuando se hable de poder y dominación.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>La diferencia sexual como diferencia política</li>
+</ol>
+<p>Nosotros caracterizaremos en lineas generales dos posiciones que son paradigmaticas para entender el significado político sobre la diferencia sexual.</p>
+<ol style="list-style-type: lower-alpha">
+<li>La pregunta por el patriacado moderno (Carole Pateman) Esta autora entiende la pregunta por la dieferencia sexual como diferencia politica a partir de la pregunta por el patriarcado moderno, esta autora cree que elpatriarcado es previo al capitalismo pero que adquiere ciertos rasgos especificos en la sociedad moderna. Entonces la pregunta es por la especificidad del patriarcado moderno.</li>
+</ol>
+<p>Aparece una pregunta parecida a la de Marx, en tanto la opresión de clases es historica, Pateman se preguntará pero en torno al patriarcado ¿qué es lo que define al patriarcado moderno como forma de dominación propia?</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Las éticas del cuidado Plantearán una linea algo diferente, las éticas del cuidado.</li>
+</ol>
+</div>
+<div id="partamos-por-la-primera-posición-que-es-la-pregunta-porel-patriarcdo-moderno." class="section level2">
+<h2>Partamos por la primera posición, que es la pregunta porel patriarcdo moderno.</h2>
+<p>Aqui se propone a Pateman para sondear esta pregunta por la forma en la que Pateman trata esta pregunta. Siempre sepregunta por el lugar de la mujer en las teorías políticas. Y como eso supone idead de domiancion y democracia a partir de la diferencia sexual.</p>
+<p>Se elige por el modo en el que Pateman busca responderla. El modo en el que es psoible llegar a entender la especidficidad del patriarcado mdoerno, en trminos de recorrer los grandes autores que dan origen a la teoria polítcia social moderna -especialmente los contractualista- y ver en esos autores que -son tan fundantes en nuestro pensamiento político- que lugar ocupan las mujeres.</p>
+<p>Pateman interroga a aquellas tradiciones que hemos venido comentando. Sobre Hobbes Pateman se pregunta el lugar de ls mujeres en el estado de naturaleza</p>
+<p>Particularmente Pateman cree que es relvante abordar este debate porque al momento del orgien de la tradicion contractualista, en el siglo 18, existia un debate entre los contractualistas y los patriarcalistas. El ebate consisitía en la pregunta de la legitimidad del poder político,del Estado.</p>
+<p>Por un lado está el patriarcalismo clásico, quienes fundaban elpoder político del estado en el poder del padre. Monarca encarna a nivel del Estado la figura del padre. Entones si la legimitdad del monarca era similar a la legitmidad del poder del padre, o eraun padre encrnado en el Estado, no necesitaba el consenitmeinto de los subditos.</p>
+<p>Como recordamos, toda la tradicion contractualista sostiene que el pp es legitimo en tanto descansa en un consentimiento entre individuos libres. Los individuos solo se someterán a restriccione que ellos consientan. En ese sentido el poder paternal sigue existiendo, pero se queda en la familia, un ambito natural, y se separa del político.</p>
+<p>Poder político distinto a figuras de la familia.</p>
+<p>Todos los contractualistas suponian que el Estado civil que surge con el contrato es un orden social post-oatriarcal porque elimina la figura del padre, porque crea esa ruptura entre el pdoer del padre en la familia y el poder político. Gran part ¿e de las teorias feministas vana mostrar que esa diea de que el poder paternal es legiitmio en el ambito de lo privado y obvio tiene conseucnecias.</p>
+<p>Esa distinción domestico político tiene una conseucneica sustancias.</p>
+<p>La idea de Pateman es criticar esa tesis de la idea postpatriarcal. Pateman dirá que si uno examina con cierto detalle los argumento de los contractualistas se encuentra que el patriarcado, el poder patriarcal, y el contrato, no son figuras opuestas, sino que hay una continuidad entre ambas posiciones.</p>
+<p>Y eto es lo que Pateman intenta explica r al entender la especificidad historica del patriarcdo moderno. Lo que habian hecho los contractualistas es que el orden político supera el patriarcado clasico, sin embargo, con eso no abolieron el aptriarcado, sino que fundaron otra forma d epatriarcado el moderno, que funciona a través de la lógica del contrato. Entonces el contrato no deroga por completo el patriarcado clásico, sino más bien modernizar ese dominio masculino. Entonces lo que le intresa es que el aptriarcado mdoerno establece una ruptura del patriarcalismo clasicio pero <strong>no una ruptura del patriarcado como forma de dominación</strong>.</p>
+<p>Entonces el argumento contractualista puede ser leido como una nueva forma de jsutificar a aprtir de supeutos mdoernos la existencia de un sistema jerarquico de subordinación de hombres sobre mujeres. Entonces el contractualismo viene a mostrar una ruptura de la legitimiación tradicional de la opersión a las mujeres,pero pasa a una moderna.</p>
+<p>Para llegar a este argumento Pateman propone estas dos categorias que funcionana la par: contrato social y contrato sexual.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Contrato social: lo que se estudia cuando se estudia la traicion politica moderna, individuos libres e iguales dan su consentimiento. Establece la subordinación al poder del Estado y permite disfrutar de manera protegida la libertad. Las leyes civiles nos entregan una proteccion.</p></li>
+<li><p>Contrato sexual: ent odos stos clasicos tambien hay un contrato sexual implicito, que tiene quever comoe stos autores abordan -cuando presentan su recorrido de loq ue es ele stado de anturaleza, el contrato etc- la diferencia sexual. Muchas veces son alusiones bie puntuales, por ejemplo caracterizar de cierta forma la familia, poner atributos para definir el inddivudio etc. En toda esta narrativa contractualista hay una idea de contrato sexual implicita.</p></li>
+</ol>
+<p>Para Pateman es muy importante entender esta forma de entender la diferencia sexual desde los contractualistas pues ella cree que esta lógica es socialmente efectiva. La lógica del contrato social, es decir que el poder es legitimo cuando emana del conseitmiento recirpoco, es no solamente una idea teorica sino que es una idea socialmente efectiva, es decir que snootros pensamos la legitimidad del pdoer a aprtir de esa figura. O sea cuando dos individuos consienten algo es legitimo.</p>
+<p>Tiene que ver con la forma en la que nosotros pensamos sobre el poder, y por eso es interesante evr el implicito de esa metafora para ver como tratamos la diferencia sexual. Es relevante que la metofaroa contractualista funciona socialmente. Esinteresant pensr la forma implicita en la qie se piensa la diferencia sexual cuando pensamos el poder de forma cotidiana.</p>
+<p>¿A que llama Pateman contrato sexual? Regula las relaciones entre hombres y mujeres, consagra un cierto orden de la diferencia sexual. Y suele consagrarlo en una querarquia o justificar el dominio de hombres sobre mujeres. El punto central opera en este contrato sexual que aparce en la tradicion contractualista de amnera implicita es que <strong>las mujeres no son sujeto del contrato, sino que son objeto</strong>. No son quienes firman. No son quienes establecen las condiciones para salir del estado de naturaleza, sino que son parte del estado de naturalza.</p>
+<p>Esto quiere decir que el resultado del contrato es diferenciado sexualmente, por una parte los dinviduos firmantes del contrato, hombres en este caso, quiere decir que los hombres obtienen de ese contrato libertad y seguridad, mientras que las mujeres no son reconocidas como sujeto de cese contrato obtienen falta de libertad y sujeción.</p>
+<blockquote>
+<p>“El contrato social es una historia de la libertad, el contrato sexual es una historia de la sujeción. El contrato original constituye, a la vez, la libertad y la dominación” (Pateman. The sexual contract).</p>
+</blockquote>
+<p>En el mismo momento aparecen los dos aspectos, social y sexual, en la emdida que entienden que el orden civi se funda en cierto contreto, al mismo tiempo están entendiendo una cierta forma de diferencia sexual.</p>
+<p>Pacto social-sexual.</p>
+<p>Lo importante es que el contrato social envuelve una forma de entender la diferencia sexual, y es una forma patriarcal, moderna, poruqe jsutifica el lugar dominant de los hombres en nombre de la libertad y la igualdad.</p>
+<p>¿Como se expresa esto? La clave o el grans ecreto que hayq ue enteder para entender el funcionameinto del aptriarcado moderno es la figura del idnviiduo. Contractualistas trabajan con la idea de estado de naturaleza y que como idnividuos firmamos un contrato. La gran pregunta es qué implica ser un individuo.</p>
+<p>La figura del idnivduo implica reconocer a alguien como propietario de su propia person, la idea ddel idnividuo implica ser dueño de si mismo, se reconcoe un poder para hacer cosas. Esta es la figura de idnivduo que tiene Hobbes, un poder para seguir deseos a vountad, un poder para.</p>
+<p>La gran pregunta es, cuando los contractualistas hablaban de idnivduos o cuando lo hacemos nosotros, ¿a quién le reconocemos eso? a todos o en realidad esconde ciertas diferencias. Y la clave está en que normalemnte los contrctulistas cuandohablaban de idnividuos ser efeian a indiiduo como propeitario masculino. Es decir, lo humano se piensa desde lo masculino,e stá pensada desde la diferencia sexual.</p>
+<p>Esa es la clave del aptriarcado mdoerno, pensar la figura del individuo desde la diferencia sexual. La figura del individuo sería masculina.</p>
+<p>El gran ejemplo de esto es la discusión larga en torno al derecho al aborto, lo que hay detrás del derecho al aborto es una cierta sospecha sobre el reconocimiento de las mujeres como individuos, propietarias de la propia persona. Negar el derecho al aborto es poner en duda el estatus de individuo a las mujeres.</p>
+<p>Esto quiere decir que segun pateman que el paso que hay del estado de naturaleza al estado civil es un paso que realizan hombres, en tanto son reconocidos como aquellos que tienen propiedad y tienen una posesion de la propia persona. Esta figura de la exclsuión aparece de distintas formas en los contractualistas.</p>
+</div>
+<div id="exclusión" class="section level2">
+<h2>Exclusión</h2>
+<ol style="list-style-type: decimal">
+<li>Subordinadas a hombres en tanto “madres/esposas”</li>
+</ol>
+<p>Esa exclusion en algunoscasos es ladiea de que las muejres serian subirdnadas a los hombres en tanto madres o esposas, definir el lugar social de las mujeres en relación a los hombres. Cuano definimos el lugr social de laguien enf uncion de otro, estamos negando el ser idnivduo de ese alguien. Toda su existencia se genera en relación a un otro. Quienes quedan subordinados no son propietairos de si mismos y no son reconcidos como tales.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Subordinación a la protección masculina (fuerza) La figura igualmente subrodinada a la protección masculina.</p></li>
+<li><p>Excluidas de la propiedad Hay otra idea que es socialmene efctiva durante siglos en lahsitoria de lasoeidad la idea de excluir a las muejres de la psoesion de si mismoa en función de la exclusión de la propiedad, acá hay una diea de qu en la medida que los hombres son individuos, pueden tomar deisioens cobre el patrimonio.</p></li>
+</ol>
+<p>A proposito del tema del aborto, Pateman pensaria que si el aborto fuera un tema masculino, algo que envuelve el cuerpo masculino, no aparecerían problemas para su legalización.</p>
+<p>También la figura de la infancia, tampoco sonreconcoidos los niños o niñas como prpietarios de su propia persona. Lo interesant es que en la caso de la firrencia sexual, hay una serie de contratos que operan bajo la lógica de que son individuos libres e iguales, por ejemplo: el contrato matrimonial.</p>
+<p>No son posible los contratos entre adultos y niños, estaría penalizado, pero si entre hombres y mujeres, solo que está cruzado por la diferencia sexual y por ende se subordinación de la mujer.</p>
+<p>Esto quiere deci que en los contratulsiats el estado de naturaleza es un estado ya sexualmente diferenciado. Donde existe la diferencia entre hombres y mujeres.</p>
+<p>Las mujeres no son reonocidas como individuos, no tienen libertad natural. Y por ende no son vistas como capaces de un contrato que ponga fin al estado de naturaleza.</p>
+<blockquote>
+<p><em>La diferencia sexual es, en si misma, una diferencia política</em></p>
+</blockquote>
+<p>Muchas veces cuando describen lo que es ser hombre y lo que es ser mujer conllleva una jerarquia, pensar la diferencia sexual ya viene con posiciones dominantes y dominadas.</p>
+<p>Y como deciamos nteriormente, se ven estas dos caras la libertad asociada a los hombres y la sujecion hacia las muejres</p>
+<p>Enfatizar: esta idea de poenr en duda el caracter de individuo el cracter de las mujeres es una concepción patriarcal de la diferencia sexual. Es un aidea operante en nuestra vida cotidiana. ¿Por qué interesa volver a los contrctualistas? Porque ese no reconocimiento de la mujer en su estatus de indviidusos eria algo que en nuestra cultura tiene una expresión legal y social.</p>
+<p>Discusiones sobre el derecho del aborto sobre los derechos de salud sexual y reporductiva, las posibliddes ciertas rpacticas en terminos de intevenciones quirrujics también son diferenciadas. Las posiblidades de bienes eocnomicos, son diferenciadas. Para PATEMAN LO QUE ESO ENVUELVE ES QUE EL ESTATUS DE INDIVIDUO ESTARÍA ASOCIADO A LA FIGURA DE LOS HOMBRES.</p>
+</div>
+<div id="mujeres-se-integran-a-la-sociedad-o-pernabecen-en-estao-de-naturaleza" class="section level2">
+<h2>**Mujeres: ¿Se integran a la sociedad o pernabecen en “estao de naturaleza”?</h2>
+<p>Gran aprte de la lógica de Pateman tiene que ver con qué lugar se le asigna a las mujeres en la argumentación de los autores contractualistas. La pregunta es si las mujeres se integran el estado civil o si permanecen en el estado de naturaleza.</p>
+<p>Lo que Pateman enuentra es que</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Son integradas a través de los hombres (esposos): seres familiares Participan a través de los hombres, es muy claro en autores como Rousseu. Hay unidades familiares pero el componente que firma el contrato son hombres.</p></li>
+<li><p>Posición: esfera privada Se integran al orden po´litico pero se integran a un orden particular que es la esfera privada. Eso se expresa por ejemplo en el largo periodo en el que las muejres estuvieron excluidas al derecho del sufragio. Y eso se basa en elargumento de que el lugar de las mujeres es el orden domestico.</p></li>
+</ol>
+<p>Lo interesante también es que los contractualistas pensaban que la familia es unámbito natural dentro del orden político, porque es un ámbito que está el Estado pero subsiste el poder paternal. Queda fuera entonces de las regulaciones del pdoer del Estado.</p>
+<p>Entonces las mujeres <em>abandonan el estado de naturaleza, pero a la vez permanecen en la naturaleza</em>, porque permancen reconcoidas solo en un ámbito que es visto como natural, lo domestico-familair.</p>
+<p>Eso significa que la figura de las muejres en el patriarcado moderno el estatus de las mujeres es de integración/exclusión.</p>
+<p>Esa es la especificidad del aptrircado mdoerno, la idea es abolir el estado de naturaleza, pero dentro del orden político hay un grupo social que a pesar de serintegrado, es excluido, porque no es reconcoida con la categroia de individuos.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
