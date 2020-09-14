@@ -1,34 +1,34 @@
 name: "PDD Apuntes"
 output_dir: "."
 navbar:
-  title: "Poder, Dominación y Democracia - Apuntes de Clase"
+  title: "PDD"
   left:
   - text: "CI"
-    href: Clase-Intro---PDD.html
+    href: Clase-Intro-PDD.html
   - text: "C1"
-    href: Clase-1---PDD.html
+    href: Clase-1-PDD.html
   - text: "C2"
-    href: Clase-2---PDD.html
+    href: Clase-2-PDD.html
   - text: "C3"
-    href: Clase-3---PDD.html
+    href: Clase-3-PDD.html
   - text: "C4"
-    href: Clase-4---PDD.html
+    href: Clase-4-PDD.html
   - text: "C5"
-    href: Clase-5---PDD.html
+    href: Clase-5-PDD.html
   - text: "C6"
-    href: Clase-6---PDD.html
+    href: Clase-6-PDD.html
   - text: "C7"
-    href: Clase-7---PDD.html
+    href: Clase-7-PDD.html
   - text: "C8"
-    href: Clase-8---PDD.html
+    href: Clase-8-PDD.html
   - text: "C9"
-    href: Clase-9---PDD.html
+    href: Clase-9-PDD.html
   - text: "C10"
-    href: Clase-10---PDD.html
+    href: Clase-10-PDD.html
   - text: "C11"
-    href: Clase-11---PDD.html
+    href: Clase-11-PDD.html
   - text: "C12"
-    href: Clase-12---PDD.html
+    href: Clase-12-PDD.html
 output:
   html_document:
     theme: yeti # yeti  spacelab simplex sandstone cosmo cerulean paper darkly flatly lumen readable
