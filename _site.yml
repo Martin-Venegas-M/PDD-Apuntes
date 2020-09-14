@@ -3,31 +3,31 @@ output_dir: "."
 navbar:
   title: "Poder, Dominación y Democracia - Apuntes de Clase"
   left:
-  - text: "Clase Introductoria"
+  - text: "CI"
     href: Clase-Intro---PDD.html
-  - text: "Clase 1"
+  - text: "C1"
     href: Clase-1---PDD.html
-  - text: "Clase 2"
+  - text: "C2"
     href: Clase-2---PDD.html
-  - text: "Clase 3"
+  - text: "C3"
     href: Clase-3---PDD.html
-  - text: "Clase 4"
+  - text: "C4"
     href: Clase-4---PDD.html
-  - text: "Clase 5"
+  - text: "C5"
     href: Clase-5---PDD.html
-  - text: "Clase 6"
+  - text: "C6"
     href: Clase-6---PDD.html
-  - text: "Clase 7"
+  - text: "C7"
     href: Clase-7---PDD.html
-  - text: "Clase 8"
+  - text: "C8"
     href: Clase-8---PDD.html
-  - text: "Clase 9"
+  - text: "C9"
     href: Clase-9---PDD.html
-  - text: "Clase 10"
+  - text: "C10"
     href: Clase-10---PDD.html
-  - text: "Clase 11"
+  - text: "C11"
     href: Clase-11---PDD.html
-  - text: "Clase 12"
+  - text: "C12"
     href: Clase-12---PDD.html
 output:
   html_document:
